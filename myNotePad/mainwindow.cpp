@@ -52,3 +52,21 @@ void MainWindow::saveActionSlot(){
         file.close();
     }
 }
+
+void MainWindow::keyPressEvent(QKeyEvent *k){
+    if(k->modifiers() == Qt::ControlModifier && Qt::Key_S) {
+        saveActionSlot();
+    }
+}
+
+void MainWindow::mousePressEvent(QMouseEvent *m) {
+    QPoint pt = m->pos();
+    qDebug()<<pt;
+
+    if(m->button() == Qt::LeftButton) {
+        qDebug()<<"按下鼠标左键";
+    }else if(m->button() == Qt::RightButton) {
+        qDebug()<<"按下鼠标右键";
+    }
+}
+
