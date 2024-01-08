@@ -21,6 +21,7 @@ public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
     void newClientHandler();
+    void clientInfoSlot();
 
 private:
     Ui::Widget *ui;

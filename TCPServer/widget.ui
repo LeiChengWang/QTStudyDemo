@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>333</width>
-    <height>151</height>
+    <height>208</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -71,6 +71,16 @@
      </layout>
     </item>
    </layout>
+  </widget>
+  <widget class="QLineEdit" name="myLineEdit">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>140</y>
+     <width>291</width>
+     <height>31</height>
+    </rect>
+   </property>
   </widget>
  </widget>
  <resources/>
