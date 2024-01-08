@@ -29,12 +29,20 @@ void Widget::newClientHandler() {
     ui->portLineEdit->setText(QString::number(socket->peerPort()));
 
     //服务端收到客户端的信号，socket发出readyread信号
-    connect(socket,&QTcpSocket::readyRead,this,&Widget::clientInfoSlot);
+    //connect(socket,&QTcpSocket::readyRead,this,&Widget::clientInfoSlot);
+
+    //启动线程
+    myThread *t = new myThread(socket);
+    t->start(); //开始线程
+
+    connect(t,&myThread::sendToWidget,[this](QByteArray b){
+        ui->myLineEdit->setText(QString(b));
+    });
 
 }
 
-void Widget::clientInfoSlot() {
-    //获取信号的发出者
-    QTcpSocket * s = (QTcpSocket *)sender();
-    ui->myLineEdit->setText(QString(s->readAll()));
-}
+// void Widget::clientInfoSlot() {
+//     //获取信号的发出者
+//     QTcpSocket * s = (QTcpSocket *)sender();
+//     ui->myLineEdit->setText(QString(s->readAll()));
+// }

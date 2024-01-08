@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QTcpServer>
 #include <QTcpSocket>
+#include "mythread.h"
 
 #define PORT 8000
 
